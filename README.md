@@ -5,4 +5,4 @@
 
 ####Skills / lessons learnt:
  * Object orientated design
- * RSpec doubles (London style testing)
+ * RSpec doubles and method stubbing (London style testing)
