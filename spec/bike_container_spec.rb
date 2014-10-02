@@ -19,9 +19,9 @@ shared_examples 'a bike container' do
 		expect(customized_container.bikes).to eq [:bike1, :bike2]
 	end
 
-	it 'should enable you to customise capacity if you wanna' do
-		value =20
-		container.capacity=(value)
+	it 'should enable you to modify capacity if you wanna' do
+		new_capacity =20
+		container.capacity=(new_capacity)
 		expect(container.capacity).to eq 20
 	end
 
@@ -56,7 +56,7 @@ shared_examples 'a bike container' do
 		bike1 = Bike.new
 		bike2 = Bike.new
 		bike3 = Bike.new
-		bike3.break!
+		bike3.break
 		container.dock(bike1)
 		container.dock(bike2)
 		container.dock(bike3)
@@ -67,18 +67,18 @@ shared_examples 'a bike container' do
 		bike1 = Bike.new
 		bike2 = Bike.new
 		bike3 = Bike.new
-		bike3.break!
+		bike3.break
 		container.dock(bike1)
 		container.dock(bike2)
 		container.dock(bike3)
 		expect(container.broken_bikes).to eq [bike3]
 	end
 
-	it 'must be able to release only the broken bikes' do
+	it 'must be able to selectively release broken bikes to the van for repair' do
 		bike1 = Bike.new
 		bike2 = Bike.new
 		bike3 = Bike.new
-		bike3.break!
+		bike3.break
 		container.dock(bike1)
 		container.dock(bike2)
 		container.dock(bike3)

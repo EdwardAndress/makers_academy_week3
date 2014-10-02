@@ -1,4 +1,4 @@
-module BikeContainer
+module BikeContainer #Describes the shared functionality of all objects in this domain which can contain bikes
 
 DEFAULT_CAPACITY = 10
 

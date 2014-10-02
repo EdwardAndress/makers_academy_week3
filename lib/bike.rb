@@ -1,17 +1,18 @@
-class Bike
+class Bike #Bikes are hired from docking stations, potentially broken, distributed by vans and fixed in garages.
 
-	def broken?
-		@broken ||= false
+	def initialize
+		@broken = false
 	end
 
-	def break!
+	def broken? #checks whether the bike has been broken
+		@broken
+	end
+
+	def break #breaks the bike - will be called when the user (a person) crashes
 		@broken = true
 	end
 	
-	def fix!
+	def fix #called when a broken bike is fixed in a garage
 		@broken = false
 	end
 end
-
-# might need to use self for the break! & fix! methods. 
-# we also don't initialise. Do we need to?
