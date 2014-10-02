@@ -7,8 +7,14 @@ include BikeContainer
 
 	def release_bike_for_hire
 		if self.working_bikes.any?
-			bikes.delete(self.working_bikes.shift)
+			bikes.delete(first_available_bike)
+		else
+			return 'There are currently no available bikes'
 		end
+	end
+
+	def first_available_bike
+		working_bikes.shift
 	end
 
 end
