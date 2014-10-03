@@ -1,1 +1,0 @@
-Method to return bikes en masse (van to dockingstation, for example)
