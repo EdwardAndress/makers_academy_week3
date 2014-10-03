@@ -9,7 +9,7 @@ describe Van do
 	it_behaves_like 'a bike container'
 
 	it 'can collect broken bikes from a station' do
-		expect(station).to receive(:release).with(station.broken_bikes)
+		expect(station).to receive(:non_customer_release).with(station.broken_bikes)
 		van.collect_broken_bikes_from(station)
 	end
 

@@ -35,9 +35,9 @@ shared_examples 'a bike container' do
 		expect(container.bikes_count).to eq 1
 	end
 
-	it 'should release a bike' do
+	it 'should release a selected bikes, specified in an array' do #not for use by customers, who will not be able to select which bike they use
 		container.dock(bike)
-		container.release([bike])
+		container.non_customer_release([bike]) #will take an array of bikes, either working or not working
 		expect(container.bikes_count).to eq 0
 	end
 
@@ -82,6 +82,6 @@ shared_examples 'a bike container' do
 		container.dock(bike1)
 		container.dock(bike2)
 		container.dock(bike3)
-		expect(container.release(container.broken_bikes)).to eq [bike3]
+		expect(container.non_customer_release(container.broken_bikes)).to eq [bike3]
 	end
 end

@@ -32,7 +32,7 @@ DEFAULT_CAPACITY = 10
 		bikes.count == DEFAULT_CAPACITY
 	end
 
-	def release(bikes_to_release)
+	def non_customer_release(bikes_to_release)
 		bikes_to_release.each {|bike| bikes.delete(bike)}
 	end
 
