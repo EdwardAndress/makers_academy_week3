@@ -3,7 +3,7 @@ require 'person'
 describe 'person' do
 
 	let(:bike)		{double :Bike, :class => 'Bike', :break => nil						}
-	let(:station)	{double :DockingStation, :working_bikes => [bike], :release => bike }
+	let(:station)	{double :DockingStation, :working_bikes => [bike], :release_bike_for_hire => bike }
 	let(:eddie) 	{Person.new						}
 
 	context 'when first instatiated' do 

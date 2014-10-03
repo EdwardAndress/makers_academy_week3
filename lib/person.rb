@@ -9,7 +9,7 @@ class Person #Is able to hire and break bikes within the 'Boris Bikes' domain
 	end
 
 	def hire_bike_from(station)
-		self.bike= (station.release(station.working_bikes.first))
+		self.bike= (station.release_bike_for_hire)
 	end
 
 	def crash
