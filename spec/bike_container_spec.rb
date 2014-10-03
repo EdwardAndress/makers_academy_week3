@@ -6,8 +6,11 @@ require 'bike_container'
 
 shared_examples 'a bike container' do
 
-	let(:container)	{described_class.new   }
-	let(:bike)	{double :bike }
+	let(:container)	{described_class.new   				}
+	let(:bike)		{double :bike, :broken? => false 	}
+	let(:bike1)		{double :bike, :broken? => false	}
+	let(:bike2)		{double :bike, :broken? => false	}
+	let(:bike3)		{double :bike, :broken? => true		}
 
 	it "should know it's capacity" do 
 		expect(container.capacity).to eq 10
@@ -53,10 +56,6 @@ shared_examples 'a bike container' do
 	end
 
 	it 'should have a list of working bikes' do
-		bike1 = Bike.new
-		bike2 = Bike.new
-		bike3 = Bike.new
-		bike3.break
 		container.dock(bike1)
 		container.dock(bike2)
 		container.dock(bike3)
@@ -64,10 +63,6 @@ shared_examples 'a bike container' do
 	end
 
 	it 'should have a list of broken bikes' do
-		bike1 = Bike.new
-		bike2 = Bike.new
-		bike3 = Bike.new
-		bike3.break
 		container.dock(bike1)
 		container.dock(bike2)
 		container.dock(bike3)
@@ -75,10 +70,6 @@ shared_examples 'a bike container' do
 	end
 
 	it 'must be able to selectively release broken bikes to the van for repair' do
-		bike1 = Bike.new
-		bike2 = Bike.new
-		bike3 = Bike.new
-		bike3.break
 		container.dock(bike1)
 		container.dock(bike2)
 		container.dock(bike3)
