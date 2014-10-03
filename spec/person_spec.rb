@@ -3,7 +3,7 @@ require 'person'
 describe 'person' do
 
 	let(:bike)		{double :Bike, :class => 'Bike', :break => nil						}
-	let(:station)	{double :DockingStation, :working_bikes => [bike], :release_bike_for_hire => bike }
+	let(:station)	{double :DockingStation, :working_bikes => [bike], :release_bike_for_hire => bike, :dock => nil }
 	let(:eddie) 	{Person.new						}
 
 	context 'when first instatiated' do 
@@ -31,6 +31,12 @@ describe 'person' do
 			eddie.bike= bike
 			expect(eddie.bike).to receive(:break)
 			eddie.crash
+		end
+
+		it 'can return a bike to a DockingStation' do
+			eddie.bike= bike
+			eddie.return_bike_to(station)
+			expect(eddie.bike).to eq nil
 		end
 
 	end

@@ -24,7 +24,7 @@ DEFAULT_CAPACITY = 10
 	end
 
 	def dock(bike)
-		raise "This van is full" if full?
+		raise "Sorry, there is no room for that bike" if full?
 		bikes << bike
 	end
 

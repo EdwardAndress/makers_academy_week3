@@ -28,7 +28,7 @@ shared_examples 'a bike container' do
 		expect(container.capacity).to eq 20
 	end
 
-	it 'container must not contain anything when first created' do
+	it 'container must not contain (by default) anything when first created' do
 		expect(container.bikes).to eq []
 	end
 
