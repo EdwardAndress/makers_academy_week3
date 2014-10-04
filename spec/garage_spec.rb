@@ -18,6 +18,9 @@ describe Garage do
     end
 
     it 'fixes broken bikes' do
+      garage.remove_broken_bikes_from(van)
+      expect(broken_bike).to receive(:fix)
+      garage.fix_broken_bikes
     end
 
   end

@@ -8,4 +8,8 @@ class Garage #used to fix broken bikes
 		self.bikes << (van.non_customer_release(van.broken_bikes))
 	end
 
+	def fix_broken_bikes
+		self.broken_bikes.each {|broken_bike| broken_bike.fix}
+	end
+
 end
