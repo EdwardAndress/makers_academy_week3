@@ -5,6 +5,7 @@ describe Van do
 
 	let(:bike)						{double :bike, :broken? => false}
 	let(:broken_bike)			{double :bike, :broken? => true}
+	let(:garage)					{double :garage, :bikes => []}
 	let(:station) 				{DockingStation.new(bikes: [broken_bike, bike])}
 	let(:van) 						{Van.new}
 
