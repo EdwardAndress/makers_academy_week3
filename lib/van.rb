@@ -9,4 +9,8 @@ include BikeContainer
 		station.non_customer_release(station.broken_bikes) #deletes all the broken bikes from the docking station
 	end
 
+	def collect_working_bikes_from(garage)
+		self.bikes << (garage.non_customer_release(garage.working_bikes))
+	end
+
 end
