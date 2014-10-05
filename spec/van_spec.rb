@@ -1,18 +1,24 @@
 require './spec/bike_container_spec'
+require 'docking_station'
 require 'van'
 
 describe Van do
 
-	let(:bike)						{double :bike, :broken? => false}
-	let(:broken_bike)			{double :bike, :broken? => true}
-	let(:garage)					{double :garage, :bikes => [bike], :working_bikes => bike, :non_customer_release => bike}
-	let(:station) 				{DockingStation.new(bikes: [broken_bike, bike])}
-	let(:full_station)		{DockingStation.new}
-	let(:van) 						{Van.new}
+	let(:bike)				{double :bike, :broken? => false}
+	let(:broken_bike)		{double :bike, :broken? => true}
+	let(:garage)			{double :garage, :bikes => [bike], :working_bikes => bike, :non_customer_release => bike}
+	let(:station) 			{DockingStation.new(bikes: [broken_bike, bike])}
+	let(:full_station)		{DockingStation.new(capacity: 0)}
+	let(:van) 				{Van.new}
 
 
-	all_stations = ObjectSpace.each_object(DockingStation)
-	full_stations = ObjectSpace.each_object(DockingStation).select {|station| station.full?}
+	def all_stations
+		ObjectSpace.each_object(DockingStation)
+	end
+
+	def full_stations
+		all_stations.select {|station| station.full?}
+	end
 
 	it_behaves_like 'a bike container'
 	
@@ -28,7 +34,7 @@ describe Van do
 	end
 
 	it 'can find DockingStations with space for bikes' do
-		expect(van.stations_with_space.count).to eq full_stations.count
+		expect(van.stations_with_space.count).to eq all_stations.count - full_stations.count
 	end
 
 end

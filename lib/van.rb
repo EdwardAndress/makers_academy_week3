@@ -14,7 +14,7 @@ include BikeContainer
 	end
 
 	def stations_with_space
-		ObjectSpace.each_object(DockingStation).to_a.select {|dockingstation| !dockingstation.full?}
+		ObjectSpace.each_object(DockingStation).to_a.reject {|dockingstation| dockingstation.full?}
 	end
 
 end
