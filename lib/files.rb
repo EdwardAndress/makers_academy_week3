@@ -5,7 +5,8 @@ require_relative './bike'
 require_relative './docking_station'
 require_relative './bike_container'
 require_relative './van'
+require_relative './garage'
 
 def available_objects #top level method which shows the user what objects can be instatiated as part of this domain
-	puts 'Person, Bike, Van, DockingStation'
+	puts 'Person, Bike, Van, DockingStation, Garage'
 end
