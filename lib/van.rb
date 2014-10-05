@@ -13,4 +13,8 @@ include BikeContainer
 		self.bikes << (garage.non_customer_release(garage.working_bikes))
 	end
 
+	def stations_with_space
+		ObjectSpace.each_object(DockingStation).to_a.select {|dockingstation| !dockingstation.full?}
+	end
+
 end
