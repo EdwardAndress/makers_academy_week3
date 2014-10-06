@@ -17,4 +17,12 @@ include BikeContainer
 		ObjectSpace.each_object(DockingStation).to_a.reject {|dockingstation| dockingstation.full?}
 	end
 
+	def redistribute_bikes #automates redistribution of bikes to stations with available spaces
+		self.stations_with_space.each do |station|
+			station.space.times do
+				station.dock(self.next_bike)
+			end
+		end
+	end
+
 end

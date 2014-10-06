@@ -8,9 +8,8 @@ describe Van do
 	let(:broken_bike)		{double :bike, :broken? => true}
 	let(:garage)			{double :garage, :bikes => [bike], :working_bikes => bike, :non_customer_release => bike}
 	let(:station) 			{DockingStation.new(bikes: [broken_bike, bike])}
-	let(:full_station)		{DockingStation.new(capacity: 0)}
 	let(:van) 				{Van.new}
-
+	let(:big_van)			{Van.new(capacity: 50)}
 
 	def all_stations
 		ObjectSpace.each_object(DockingStation)
@@ -35,6 +34,12 @@ describe Van do
 
 	it 'can find DockingStations with space for bikes' do
 		expect(van.stations_with_space.count).to eq all_stations.count - full_stations.count
+	end
+
+	it 'can return bikes to dockinstations by iterating through the list of docking stations with space' do
+		fill(big_van)
+		big_van.redistribute_bikes
+		expect(big_van.bikes.count).to eq 0 
 	end
 
 end

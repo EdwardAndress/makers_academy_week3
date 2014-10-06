@@ -11,12 +11,20 @@ DEFAULT_CAPACITY = 10
 		@bikes ||= []
 	end
 
+	def next_bike
+		bikes.shift
+	end
+
 	def capacity
 		@capacity
 	end
 
 	def capacity=(value)
 		@capacity = value
+	end
+
+	def space
+		capacity - bikes_count
 	end
 
 	def bikes_count
@@ -29,7 +37,7 @@ DEFAULT_CAPACITY = 10
 	end
 
 	def full?
-		bikes.count == DEFAULT_CAPACITY
+		bikes.count == self.capacity
 	end
 
 	def non_customer_release(bikes_to_release)

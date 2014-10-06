@@ -1,7 +1,7 @@
 require 'bike_container'
 
 	def fill(container)
-		10.times {container.dock(bike)}
+		container.capacity.times {container.dock(bike)}
 	end
 
 shared_examples 'a bike container' do
@@ -14,6 +14,11 @@ shared_examples 'a bike container' do
 
 	it "should know it's capacity" do 
 		expect(container.capacity).to eq 10
+	end
+
+	it 'should know how much space remains' do
+		5.times {container.dock(bike)}
+		expect(container.space).to eq 5
 	end
 
 	it 'can be initialized with a customized capacity' do
