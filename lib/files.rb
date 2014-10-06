@@ -21,8 +21,7 @@ def module_summary(mod)
 	section_start_and_end
 	puts "Methods shared by all objects that can contain bikes (Vans, DockingStations and Garages)"
 	header_end
-	mod.instance_methods(false).each {|method| puts method}
-	section_start_and_end
+	object_methods(mod)
 end
 
 def section_header(object)
