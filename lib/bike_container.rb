@@ -2,10 +2,13 @@ module BikeContainer #Describes the shared functionality of all objects in this 
 
 DEFAULT_CAPACITY = 10
 
-	def initialize (capacity: DEFAULT_CAPACITY, bikes: [])
+	def initialize (capacity: DEFAULT_CAPACITY, bikes: [], location: [])
 		@capacity = capacity
 		@bikes = bikes
+		@location = location
 	end
+
+	attr_accessor :location
 
 	def bikes
 		@bikes ||= []

@@ -7,6 +7,7 @@ describe DockingStation do
 	it_behaves_like 'a bike container'
 
 	context 'when being used by a person' do
+
 		it 'can release a working bike for hire' do
 			station = DockingStation.new(bikes: [Bike.new, Bike.new])
 			expect(station.bikes.count).to eq 2
@@ -19,7 +20,16 @@ describe DockingStation do
 			expect(station.release_bike_for_hire).to eq 'There are currently no available bikes'
 		end
 
-	end	
+	end
+
+	context 'has a location' do
+
+		it 'using GPS coordinates' do
+			station = DockingStation.new(location: [-81.110766, 84.375003])
+			expect(station.location).to eq [-81.110766, 84.375003]
+		end
+
+	end
 
 end
 
