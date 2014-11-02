@@ -1,4 +1,4 @@
-###Makers Academy Week 3: Boris Bikes by Object Orientated Design
+###[Makers Academy] Week 3: Boris Bikes by Object Orientated Design
 -----------------------------------------
 
 ####Specification:
@@ -32,3 +32,4 @@ $ require './files'
 $ available_objects
 ```
 Then you can make (.new), .hire, .break! and .fix! to your heart's content.
+[Makers Academy]: http://makersacademy.com
