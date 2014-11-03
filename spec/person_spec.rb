@@ -5,6 +5,7 @@ describe 'person' do
 	let(:bike)		{double :Bike, :class => 'Bike', :break => nil						}
 	let(:station)	{double :DockingStation, :working_bikes => [bike], :release_bike_for_hire => bike, :dock => nil }
 	let(:eddie) 	{Person.new						}
+	let(:bad_cyclist) 	{Person.new(cycling_ability: 10)						}
 
 	context 'when first instatiated' do 
 
@@ -16,6 +17,10 @@ describe 'person' do
 			#in this test the person is just given a bike without the need for a 'hire' method, using the attribute writer
 			eddie.bike= bike
 			expect(eddie.bike.class).to eq 'Bike'
+		end
+
+		it 'should have a cycling ability attribute which can be used to determine the liklihood of a crash' do
+			expect(bad_cyclist.cycling_ability).to eq 10
 		end
 
 	end

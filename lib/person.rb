@@ -1,8 +1,11 @@
 class Person #Is able to hire and break bikes within the 'Boris Bikes' domain
 
-	def initialize
+	def initialize(cycling_ability: 50)
 		@bike = nil
+		@cycling_ability = cycling_ability
 	end
+
+	attr_reader :cycling_ability
 
 	def bike
 		@bike
