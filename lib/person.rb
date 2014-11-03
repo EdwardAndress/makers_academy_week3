@@ -6,14 +6,7 @@ class Person #Is able to hire and break bikes within the 'Boris Bikes' domain
 	end
 
 	attr_reader :cycling_ability
-
-	def bike
-		@bike
-	end
-
-	def bike=(hired_bike)
-		@bike = hired_bike
-	end
+	attr_accessor :bike
 
 	def hire_bike_from(station)
 		self.bike= (station.release_bike_for_hire)

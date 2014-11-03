@@ -2,9 +2,9 @@ require 'person'
 
 describe 'person' do
 
-	let(:bike)		{double :Bike, :class => 'Bike', :break => nil						}
-	let(:station)	{double :DockingStation, :working_bikes => [bike], :release_bike_for_hire => bike, :dock => nil }
-	let(:eddie) 	{Person.new						}
+	let(:bike)			{double :Bike, :class => 'Bike', :break => nil													}
+	let(:station)		{double :DockingStation, :working_bikes => [bike], :release_bike_for_hire => bike, :dock => nil }
+	let(:eddie) 		{Person.new												}
 	let(:bad_cyclist) 	{Person.new(cycling_ability: 10)						}
 
 	context 'when first instatiated' do 
