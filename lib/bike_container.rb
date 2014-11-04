@@ -8,7 +8,7 @@ DEFAULT_CAPACITY = 10
 		@location = location
 	end
 
-	attr_accessor :location
+	attr_accessor :location, :capacity
 
 	def bikes
 		@bikes ||= []
@@ -16,14 +16,6 @@ DEFAULT_CAPACITY = 10
 
 	def next_bike
 		bikes.shift
-	end
-
-	def capacity
-		@capacity
-	end
-
-	def capacity=(value)
-		@capacity = value
 	end
 
 	def space
